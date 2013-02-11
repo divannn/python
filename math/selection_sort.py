@@ -21,7 +21,10 @@ def selection_sort(list):
 
 
 def main():
+	print "-=SELECTION SORT=-"
+
 	list = [5, 2, 6, 3, 1, 4, 7, 9, 0, 8]
+
 	print ' input:' + str(list)
 	result = selection_sort(list)
 	print 'result:' + str(result)

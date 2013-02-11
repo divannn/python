@@ -34,6 +34,8 @@ def merge(left, right):
 
 
 def main():
+	print "-=MERGE SORT=-"
+
 	list = [5, 2, 6, 3, 1, 4, 7, 9, 0, 8]
 	print ' input:' + str(list)
 	result = merge_sort(list)
