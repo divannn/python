@@ -3,6 +3,8 @@
 
 __author__ = 'ivan'
 
+#TODO: add non-recursive way.
+
 # MergeSort function.
 # Time: n*ln(n)
 def merge_sort(list):
