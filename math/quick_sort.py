@@ -10,27 +10,38 @@ def quick_sort(list, left, right):
 	N = len(list)
 	if N <= 1:
 		return list
-	pivot = list[0]#just take the 1st item.
-	partition(list, left, right, pivot)
-	quick_sort(list, left, right)
-	quick_sort(list, left, right)
+	if (left >= right):
+		return list
+	pos = partition(list, left, right)
+	#if left < pos:
+	quick_sort(list, left, pos - 1)
+	#if right > pos:
+	quick_sort(list, pos + 1, right)
 
 # merges two sorted arrays.
-def partition(list, left, right, pivot):
-	if (left >= right):
-		return
+def partition(list, left, right):
+	#pivot = list[0]#just take the 1st item.
+	pivot = list[(left + right) / 2]
+	pivot_pos = -1
 	i = left
 	j = right
 	while i <= j:
-		while list[i] <= pivot:
+		while list[i] < pivot:
 			i += 1
-		while list[j] >= pivot:
+		while list[j] > pivot:
 			j -= 1
-		#swap
-		if (i < j):
-			tmp = list[i]
-			list[i] = list[j]
-			list[j] = tmp
+		if i <= j:
+			pivot_pos = i
+			swap(list, i, j)
+			i += 1
+			j -= 1
+	return pivot_pos
+
+
+def swap(list, i, j):
+	tmp = list[i]
+	list[i] = list[j]
+	list[j] = tmp
 
 
 def main():
@@ -39,8 +50,8 @@ def main():
 	list = [5, 2, 6, 3, 1, 4, 7, 9, 0, 8]
 
 	print ' input:' + str(list)
-	result = quick_sort(list, 0, len(list) - 1)
-	print 'result:' + str(result)
+	quick_sort(list, 0, len(list) - 1)
+	print 'result:' + str(list)
 
 if __name__ == '__main__':
 	main()
