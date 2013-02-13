@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-__author__ = 'ivan'
+import sort_util
 
+__author__ = 'ivan'
 
 # QuickSort function.
 # Time: n*ln(n)
@@ -32,17 +33,10 @@ def partition(list, left, right):
 			j -= 1
 		if i <= j:
 			pivot_pos = i
-			swap(list, i, j)
+			sort_util.swap(list, i, j)
 			i += 1
 			j -= 1
 	return pivot_pos
-
-
-def swap(list, i, j):
-	tmp = list[i]
-	list[i] = list[j]
-	list[j] = tmp
-
 
 def main():
 	print "-=QUICK SORT=-"

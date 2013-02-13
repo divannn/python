@@ -1,22 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import sort_util
+
 __author__ = 'ivan'
 
 # SelectionSort function.
 # Time: n*n
 def selection_sort(list):
 	N = len(list)
-	for i in range(0, N - 1):
+	for i in range(0, N):
 		minInd = i
-		for j in range(i, N - 1):
+		for j in range(i, N):
 			if list[j] < list[minInd]:
 				minInd = j
-		#swap
-		tmp = list[i]
-		list[i] = list[minInd]
-		list[minInd] = tmp
-		#print list
+		sort_util.swap(list, i, minInd)
+	#print list
 	return list
 
 
