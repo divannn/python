@@ -8,9 +8,9 @@ __author__ = 'ivan'
 def selection_sort(list):
 	N = len(list)
 	for i in range(0, N - 1):
-		minInd = list[i]
+		minInd = i
 		for j in range(i, N - 1):
-			if list[j] <= list[minInd]:
+			if list[j] < list[minInd]:
 				minInd = j
 		#swap
 		tmp = list[i]
