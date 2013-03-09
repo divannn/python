@@ -5,6 +5,7 @@ import sort_util
 
 __author__ = 'ivan'
 
+# todo:
 # QuickSort function.
 # Time: n*ln(n)
 def quick_sort(list, left, right):
