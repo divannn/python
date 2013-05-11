@@ -7,23 +7,25 @@ __author__ = 'ivan'
 
 # todo:
 # QuickSort function.
-# Time: n*ln(n)
-def quick_sort(list, left, right):
+# Time: n*ln(n
+def quick_sort(list):
+	quick_sort_impl(list, 0, len(list) - 1)
+
+def quick_sort_impl(list, left, right):
 	N = len(list)
 	if N <= 1:
 		return list
 	if (left >= right):
 		return list
 	pos = partition(list, left, right)
-	#if left < pos:
-	quick_sort(list, left, pos - 1)
-	#if right > pos:
-	quick_sort(list, pos + 1, right)
+	quick_sort_impl(list, left, pos - 1)
+	quick_sort_impl(list, pos + 1, right)
 
 # merges two sorted arrays.
 def partition(list, left, right):
-	#pivot = list[0]#just take the 1st item.
-	pivot = list[(left + right) / 2]
+	#just take the 1st item.
+	pivot = list[0]
+	#pivot = list[(left + right) / 2]
 	pivot_pos = -1
 	i = left
 	j = right
@@ -35,8 +37,8 @@ def partition(list, left, right):
 		if i <= j:
 			pivot_pos = i
 			sort_util.swap(list, i, j)
-			i += 1
-			j -= 1
+
+	sort_util.swap(list, pivot_pos, j)
 	return pivot_pos
 
 def main():
@@ -45,7 +47,7 @@ def main():
 	list = [5, 2, 6, 3, 1, 4, 7, 9, 0, 8]
 
 	print ' input:' + str(list)
-	quick_sort(list, 0, len(list) - 1)
+	quick_sort(list)
 	print 'result:' + str(list)
 
 if __name__ == '__main__':

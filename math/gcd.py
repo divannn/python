@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 __author__ = 'danili'
 
 #Utils for finding GCD - Greatest Common Divisor
@@ -9,7 +12,7 @@ def gcd1(a, b):
 			a = a % b
 		else:
 			b = b % a
-	return a + b #some of them will be null here.
+	return a + b #some of them will be 0 here.
 
 #2 by subtraction
 def gcd2(a, b):
